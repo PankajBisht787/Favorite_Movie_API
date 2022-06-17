@@ -1,0 +1,13 @@
+
+
+<h1>Update Movie</h1>
+<br>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="rating">Your Rating: </label>
+    <input id="rating" type="number" name="rating" required><br><br>
+    
+    <p><label for="review">Your Review:</label></p>
+    <textarea id="review" name="review" rows="4" cols="50"></textarea><br><br>
+            <input type="submit" value="Submit">
+</form>

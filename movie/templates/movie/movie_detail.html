@@ -1,0 +1,46 @@
+{% block title %}
+    <h1>Movie Detail:</h1>
+{% endblock title %}
+
+{% block main %}
+
+<div class="card">
+    {% comment %} <img src="https://image.tmdb.org/t/p/original/{{ data.poster_path }}" style="width:10%">
+    
+   
+    
+    <div class="container">
+        <h2> {{ data.title | linebreaks }} </h2>
+
+            <p><strong>Description:</strong> {{ data.overview }}</p>
+            <p>Year: {{ data.release_date }}</p>
+    </div><hr> {% endcomment %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h2>Add Movie</h2>
+            <label for="title">Title: </label>
+            <input id="title" type="text" name="title" value="{{ data.title }}" required><br><br>
+            <label for="year">Year: </label>
+            <input id="year" type="text" name="year" value="{{ data.release_date }}" required><br>
+            <p><label for="description">Description:</label></p>
+            <textarea id="description" name="description" rows="4" cols="50">{{data.overview}}</textarea><br><br>
+            
+            <label for="rating">Your Rating: </label>
+            <input id="rating" type="number" name="rating" required><br><br>
+            {% comment %} <label for="review">Your Review: </label>
+            <input id="review" type="text" name="review" required><br><br> {% endcomment %}
+            <p><label for="review">Your Review:</label></p>
+            <textarea id="review" name="review" rows="4" cols="50"></textarea><br><br>
+            <label for="image">Image_URL: </label>
+            <input id="image" type="text" name="image" value="https://image.tmdb.org/t/p/original/{{ data.poster_path }}" required><br>
+            <input type="submit" value="Submit">
+        
+    </form>
+
+    
+</div>
+    
+
+{% endblock main %}
+

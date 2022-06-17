@@ -1,0 +1,36 @@
+<h1>My Top 10 Movies</h3>
+    <h4>These are my all time favorite movies</h4><br/>
+    
+{% for event in movie %}
+
+<div class="card">
+    {% comment %}  {% endcomment %}
+        <div class="container">
+            <img src="https://image.tmdb.org/t/p/original/{{ event.img_url }}" style="width:10%">
+            <strong> {{ event | linebreaks }} </strong>
+            <p><strong>Year: </strong>{{ event.year |date:"Y" }}</p>
+            <p><strong>Description: </strong>{{ event.description }} </p>
+            <p><strong>Your Rating: </strong>   {{ event.rating }}  </p>
+            <p><strong>Rank: </strong>   {{ event.id }}  </p>
+            <p><strong>Your Review: </strong>   {{ event.review }}  </p>
+            {% comment %} <a href="{% url 'update_movie' event.id %}">Update</a>&nbsp;&nbsp;&nbsp;<a href="{% url 'delete_movie' event.id %}">Delete</a><hr> {% endcomment %}
+            <a href="{% url 'update_movie' event.id %}">
+                <button>
+                    Update
+                </button>
+            </a>&nbsp;&nbsp;<a href="{% url 'delete_movie' event.id %}">
+                <button>
+                    Delete
+                </button>
+            </a><hr><br><br>
+        </div>
+</div>
+    {% endfor %}
+    
+<center>
+    <a href="{% url 'index' %}">
+        <button>
+            Add Movie
+        </button>
+    </a>
+</center>

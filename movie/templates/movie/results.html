@@ -1,0 +1,28 @@
+
+{% load static %}
+
+{% block title %}
+    Results
+{% endblock title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'movie/index.css' %}" />
+{% endblock %}
+
+{% block main %}
+
+    {% for movie in data.results %}
+
+        <div class="card">
+            {% comment %} <img src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" style="width:10%"> {% endcomment %}
+                <div class="container">
+                    
+                    <a href="/movie/{{ movie.id }}">{{ movie.title }}</a>
+                    {% comment %} <p>Description: {{ movie.overview }}</p> {% endcomment %}
+                    <p>Year: {{ movie.release_date }}</p><hr>
+                </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock main %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        
+    </head>
+    <body>
+        {% block main %}
+        
+<center>
+    <h1>Search Movie</h1>
+    <form action="/search/" method="get">
+
+        <div>
+            <input type="text" class="form-control" placeholder="Search Movie" name="q">
+        </div></br>
+
+        <div>
+            <button type="submit" class="btn btn-submit">Submit</button>
+        </div>
+
+    </form></center>
+
+
+
+    <form>
+      
+
+
+    </form>
+
+{% endblock main %}
+</html>
+
+
